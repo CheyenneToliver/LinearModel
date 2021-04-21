@@ -26,6 +26,7 @@ require(knitr)
 data <- read.csv(file="https://onlinestatbook.com/case_studies_rvls/physical_strength/data.txt",sep="",header=TRUE)
 ```
 
+##Model 1
 
 ```{r}
 basicNN <- ggplot(data ,aes(y=SIMS,x=ARM))
@@ -35,8 +36,9 @@ basicNN <- ggplot(data ,aes(y=SIMS,x=ARM))
 ```{r}
 basicNN + geom_point()
 ```
+ 
     
-   # Numerical results
+## Numerical results
 
 ```{r}
 cor(SIMS~ARM,data=data)
@@ -62,8 +64,11 @@ predict(model.1, newdata, interval="prediction")
 basicNN + geom_point() + geom_smooth(method=lm)
 ``` 
    
+This scatterplot shows that there is a positive correlation between SIMS and ARM. The adjusted R-squared is 0.467. The residual error is 1.226, which is the standard deviation of the normal spread of errors on the points of the line.
 The equation for SIMS explained by ARM is 
 SIMS= -4.1+ 0.545*ARM
+
+##Model 2
 
 
 ```{r}
@@ -96,11 +101,12 @@ predict(model.2, newdata, interval="prediction")
 ```{r}
 basicGP + geom_point() + geom_smooth(method=lm)
 ``` 
-   
+  
+This scatterplot shows that there is a positive correlation between SIMS and GRIP. The adjusted R-squared is 0.4053. The residual error is 1.295, which is the standard deviation of the normal spread of errors on the points of the line.   
 The equation for SIMS explained by GRIP is 
 SIMS= -4.81+ 0.0455*GRIP
 
-
+##Model 3
 
 # Inferential  (Build linear model)
   
